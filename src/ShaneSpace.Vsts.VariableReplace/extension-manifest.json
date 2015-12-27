@@ -1,0 +1,89 @@
+{
+  "manifestVersion": 1,
+  "id": "ConfigTransform",
+  "name": "Variable Replace",
+  "version": "0.0.94",
+  "publisher": "ShaneSpace",
+  "public": false,
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "description": "Build task that allows you to update appSettings or connectionStrings in XML .config files or allows you to replace variables in format $(parameterName) in other files.",
+  "categories": [
+    "Build and release"
+  ],
+  "tags": [
+    "Config",
+    "Configuration",
+    "Transform",
+    "Variable",
+    "Variables",
+    "Parameter",
+    "Parameters",
+    "Replace",
+    "Replacement"
+  ],
+  "icons": {
+    "default": "extension-icon.png"
+  },
+  "files": [
+    {
+      "path": "sdk/scripts",
+      "addressable": true
+    },
+    {
+      "path": "extension-icon.png",
+      "addressable": true
+    },
+    {
+      "path": "VariableReplacePreview",
+      "addressable": true
+    },
+    {
+      "path": "VariableReplace",
+      "addressable": true
+    }
+  ],
+  "scopes": [
+    "vso.build_execute"
+  ],
+  "contributions": [
+    {
+      "id": "VariableReplace-task-1",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "VariableReplace"
+      }
+    },
+    {
+      "id": "VariableReplace-tab-1",
+      "type": "ms.vss-build-web.build-results-tab",
+      "targets": [
+        "ms.vss-build-web.build-results-view"
+      ],
+      "properties": {
+        "name": "Preview Transform",
+        "uri": "VariableReplacePreview/context.html"
+      }
+    },
+    {
+      "id": "VariableReplace-section-1",
+      "type": "ms.vss-build-web.build-results-section",
+      "description": "A section contributing to our own new tab",
+      "targets": [
+        ".VariableReplace-tab-1"
+      ],
+      "properties": {
+        "name": "Build Dump",
+        "uri": "VariableReplacePreview/buildDumpSection.html",
+        "order": 10,
+        "height": 500
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <script src="../sdk/scripts/VSS.SDK.js"></script>
+    <script type="text/javascript">
+    VSS.init({ usePlatformScripts: true, moduleLoaderConfig: { paths: { "scripts": "PreviewTransform/scripts" } } });
+    VSS.ready(function() {
+        require(["PreviewTransform/scripts/dump"], function () { });
+    });      
+    </script>
+    <style>
+   
+    </style>
+</head>
+
+<body>
+    <div class="build-dump">
+         
+    </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+{
+  "id": "0e5dcf89-faa3-4561-97db-266b00558186",
+  "name": "VariableReplace",
+  "friendlyName": "Variable Replace",
+  "description": "Allows you to replace appSettings/connectionStrings in XML .config files or inline paramters in the format of $(parameterName) in any file.",
+  "helpMarkDown": "Coming soon!",
+  "category": "Utility",
+  "visibility": [
+    "Build"
+  ],
+  "author": "ShaneSpace",
+  "version": {
+    "Major": 0,
+    "Minor": 0,
+    "Patch": 44
+  },
+  "demands": [
+  ],
+  "minimumAgentVersion": "1.83.0",
+  "groups": [
+    {
+      "name": "xmlConfig",
+      "displayName": "XML config replacement",
+      "isExpanded": true
+    },
+    {
+      "name": "substituteVariables",
+      "displayName": "Variable Substitution",
+      "isExpanded": true
+    },
+    {
+      "name": "secretVariables",
+      "displayName": "Secrets",
+      "isExpanded": true
+    }
+  ],
+  "inputs": [
+    {
+      "name": "ConfigFiles",
+      "type": "multiLine",
+      "label": "Config Files",
+      "groupName": "xmlConfig",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Any files specified will optionally have the appSetting and/or connectionStrings replaced where a variable name matches a key/name attribute. Newline seperated relative path(s) from repo root of the project or solution to run.  Wildcards can be used.  For example, `**\\*.config` for all config files in all sub folders."
+    },
+    {
+      "name": "AppSettings",
+      "type": "boolean",
+      "label": "Transform appSettings",
+      "defaultValue": "false",
+      "groupName": "xmlConfig",
+      "required": false,
+      "helpMarkDown": "When set to true will replace any appSettings where the name matches a build variable."
+    },
+    {
+      "name": "ConnectionStrings",
+      "type": "boolean",
+      "label": "Transform connectionStrings",
+      "defaultValue": "false",
+      "groupName": "xmlConfig",
+      "required": false,
+      "helpMarkDown": "When set to true will replace any connectionStrings where the name matches a build variable."
+    },
+    {
+      "name": "substituteVariablesFiles",
+      "type": "multiLine",
+      "label": "Variable Substitution Files",
+      "defaultValue": "",
+      "groupName": "substituteVariables",
+      "required": false,
+      "helpMarkDown": "Any files specified will have any variable in the form of $(variableName) substituted with the appropriate build variable.  Newline seperated relative path(s) from repo root of the project or solution to run.  Wildcards can be used.  For example, `**\\*.config` for all config files in all sub folders."
+    },
+    {
+      "name": "secretVariables",
+      "type": "multiLine",
+      "label": "Secret Variables",
+      "defaultValue": "",
+      "groupName": "secretVariables",
+      "required": false,
+      "helpMarkDown": "To expose secret variables to the task place them each on a new line in the following format:  parameterName=$(parameterName)"
+    }
+  ],
+  "instanceNameFormat": "Replace variables in files.",
+  "execution": {
+    "PowerShell": {
+      "target": "$(currentDirectory)\\VariableReplace.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(System.DefaultWorkingDirectory)",
+      "platforms": [ "windows" ]
+    }
+  }
+}

@@ -1,0 +1,4 @@
+﻿/build
+/.vs
+**/bin
+**/obj

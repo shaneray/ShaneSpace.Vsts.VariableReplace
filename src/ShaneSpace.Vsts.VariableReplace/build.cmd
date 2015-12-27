@@ -1,0 +1,1 @@
+tfx extension create --manifest-globs extension-manifest.json --output-path ../../build --no-prompt
