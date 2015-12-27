@@ -1,4 +1,4 @@
-﻿/build
+﻿**/*.vsix
 /.vs
 **/bin
 **/obj
