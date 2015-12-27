@@ -7,7 +7,7 @@ Project("{F5034706-568F-408A-B7B3-4D38C6DB8A32}") = "ShaneSpace.Vsts.VariableRep
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{F6BC1A26-B2CD-4E89-94D0-01F300EA2767}"
 	ProjectSection(SolutionItems) = preProject
-		src\ShaneSpace.Vsts.VariableReplace\.gitignore = src\ShaneSpace.Vsts.VariableReplace\.gitignore
+		.gitignore = .gitignore
 		src\ShaneSpace.Vsts.VariableReplace\build.cmd = src\ShaneSpace.Vsts.VariableReplace\build.cmd
 	EndProjectSection
 EndProject
